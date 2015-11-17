@@ -1,7 +1,7 @@
 <?php
 
 // Require the Indego class
-require_once('indego.class.php');
+require_once('Indego.class.php');
 
 // Instantiate the Indego class which will immediately discover all of the stations
 $indego = new Indego;
