@@ -27,6 +27,12 @@ Maybe check out https://github.com/CityOfPhiladelphia while you are waiting for 
 	    [timeZone] => Eastern Standard Time
 	    [totalDocks] => 19
 	    [trikesAvailable] => 0
+	    [coordinates] => Array
+	        (
+	            [0] => -75.14973
+	            [1] => 39.98082
+	        )
+
 	)
 	stdClass Object
 	(
@@ -49,4 +55,10 @@ Maybe check out https://github.com/CityOfPhiladelphia while you are waiting for 
 	    [timeZone] => Eastern Standard Time
 	    [totalDocks] => 35
 	    [trikesAvailable] => 0
+	    [coordinates] => Array
+	        (
+	            [0] => -75.18986
+	            [1] => 39.94887
+	        )
+
 	)
