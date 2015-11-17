@@ -14,15 +14,19 @@ Example
 
 ### Code
 
-When combined with the provided `Indego` class, the following code will generate the example output in the next section.
+When combined with the provided `Indego` class, the following code will generate the example output in the next section:
 
-    // Instantiate the Indego class which will immediately discover all of the stations
-    $indego = new Indego;
+	// Require the Indego class
+	require_once('indego.class.php');
 
-    // Just get "university" stations
-    $uni_stations = $indego->getStations('university');
+	// Instantiate the Indego class which will immediately discover all of the stations
+	$indego = new Indego;
 
-    print_r($uni_stations);
+	// Just get "university" stations
+	$uni_stations = $indego->getStations('university');
+
+	print_r($uni_stations);
+
 
 Currently, the constructor of the `Indego` class executes a `findStations()` function which hits their API returning all of the (approximately 73) stations.
 
@@ -30,7 +34,7 @@ Providing a filter to `getStations()` to return a list of stations only limits t
 
 ### Output
 
-    $ php indego.class.php
+    $ php example.php
     Array
     (
         [3008] => stdClass Object
@@ -39,9 +43,9 @@ Providing a filter to `getStations()` to return a list of stations only limits t
                 [addressCity] => Philadelphia
                 [addressState] => PA
                 [addressZipCode] => 19122
-                [bikesAvailable] => 8
+                [bikesAvailable] => 9
                 [closeTime] => 23:58:00
-                [docksAvailable] => 9
+                [docksAvailable] => 8
                 [eventEnd] =>
                 [eventStart] =>
                 [isEventBased] =>
@@ -68,9 +72,9 @@ Providing a filter to `getStations()` to return a list of stations only limits t
                 [addressCity] => Philadelphia
                 [addressState] => PA
                 [addressZipCode] => 19147
-                [bikesAvailable] => 14
+                [bikesAvailable] => 18
                 [closeTime] => 23:58:00
-                [docksAvailable] => 21
+                [docksAvailable] => 17
                 [eventEnd] =>
                 [eventStart] =>
                 [isEventBased] =>
