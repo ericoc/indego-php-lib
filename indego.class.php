@@ -6,8 +6,13 @@ class Indego {
 	// Create empty private array to fill in with station data from our constructor
 	private $stations = [];
 
-	// Hit the bike-share API and find all of the stations upon instantiation of the class
+	// Find all of the stations upon instantiation of the class
 	public function __construct() {
+		$this->findStations();
+	}
+
+	// Create a function to hit the API and find all of the stations
+	private function findStations() {
 
 		// Specify the Indego bikes API URL
 		$url = 'https://api.phila.gov/bike-share-stations/v1';
@@ -89,16 +94,10 @@ class Indego {
 
 error_reporting(E_ALL);
 
-// Instantiate the Indego class which will instantly discover all of the stations using the constructor
+Instantiate the Indego class which will immediately discover all of the stations
 $indego = new Indego;
-
-// Get all of the stations
-//$stations = $indego->getStations();
-//var_dump($stations);
 
 // Just get "university" stations
 $uni_stations = $indego->getStations('university');
 
-foreach ($uni_stations as $uni_station) {
-	print_r($uni_station);
-}
+print_r($uni_stations);
