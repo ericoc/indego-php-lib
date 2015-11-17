@@ -30,12 +30,12 @@ class Indego {
 
 		// Add each station to our own array that's easier to work with
 		foreach ($raw->features as $station) {
-			$this->addStation($station->properties);
+			$this->addStation($station->properties, $station->geometry->coordinates);
 		}
 	}
 
 	// Create a function to add stations to our own array (from large passed in array)
-	private function addStation($properties) {
+	private function addStation($properties, $coordinates) {
 		$id = $properties->kioskId;		//	Get the station kiosk ID
 		$this->stations[$id] = new stdClass();	//	Make a new object in our own array for the station
 
@@ -43,6 +43,9 @@ class Indego {
 		foreach ($properties as $name => $value) {
 			$this->stations[$id]->$name = $value;
 		}
+
+		// Fill in the coordinates for the station
+		$this->stations[$id]->coordinates = $coordinates;
 	}
 
 	// Create a function to search for and return stations
