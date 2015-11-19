@@ -56,6 +56,9 @@ class Indego {
 	// Create a function to search for and return stations
 	public function getStations($where = '') {
 
+		// Create empty array to fill in with station data that will be returned by this function
+		$return = [];
+
 		// Just provide all of the stations if no search query was given
 		if (empty($where)) {
 			$return = $this->stations;
