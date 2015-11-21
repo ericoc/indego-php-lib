@@ -3,13 +3,8 @@
 // Create a class to work with the Philadelphia Indego Bike Share API
 class Indego {
 
-	// Create empty private array to fill in with station data from our constructor
-	private $stations = [];
-
-	// Find all of the stations upon instantiation of the class
-	public function __construct() {
-		$this->findStations();
-	}
+	private $stations = [];		// Create empty private array to fill in with station data
+	private $initialized = false;	// Initialization (retrieval) of station data hasn't happened yet
 
 	// Create a function to hit the API and find all of the stations
 	private function findStations() {
@@ -37,6 +32,9 @@ class Indego {
 		foreach ($raw->features as $station) {
 			$this->addStation($station->properties, $station->geometry->coordinates);
 		}
+
+		// Initialization complete since stations have been found at this point
+		$this->initialized = true;
 	}
 
 	// Create a function to add stations to our own array (from large passed in array)
@@ -55,6 +53,11 @@ class Indego {
 
 	// Create a function to search for and return stations
 	public function getStations($where = '') {
+
+		// Find all of the stations first, if that hasn't already been done
+		if (!$this->initialized) {
+			$this->findStations();
+		}
 
 		// Create empty array to fill in with station data that will be returned by this function
 		$return = [];
@@ -87,10 +90,5 @@ class Indego {
 
 		// Return the stations!
 		return $return;
-	}
-
-	// Nothing in the destructor for now, but maybe some day!
-	public function __destruct() {
-		// nothing yet
 	}
 }
