@@ -4,9 +4,9 @@ Indego Bike Share PHP Library
 About
 -----
 
-This is still under construction, but I am trying to make a re-usable PHP library for the Philadelphia Indego Bike Share API!
+I am mostly fooling around with PHP to get more used to object-orientation as opposed to doing just procedural PHP all of the time. In my journey, I've made a re-usable PHP library for the Philadelphia Indego Bike Share API!
 
-Check out [the City of Philadelphia GitHub](https://github.com/CityOfPhiladelphia) while you are waiting for my library to be more usable!
+Check out [the City of Philadelphia GitHub](https://github.com/CityOfPhiladelphia) if you think this library is interesting!
 
 
 Example
@@ -28,9 +28,11 @@ When combined with the provided `Indego` class, the following code will generate
 	print_r($uni_stations);
 
 
-Currently, the constructor of the `Indego` class executes a `findStations()` function which hits their API returning all of the (approximately 73) stations.
+Providing a argument/filter to `getStations()` to return a list of stations only limits the results within the `Indego` class.
 
-Providing a filter to `getStations()` to return a list of stations only limits the results within the `Indego` class. Unfortunately, there does not appear to be a signifcant amount of documentation for the API being used nor does their seem to be any parameters available to limit the stations being retrieved from the API. 
+Unfortunately, there does not appear to be a signifcant amount of documentation for the API being used nor does there seem to be any parameters available to limit the stations being retrieved from the API.
+
+Calling `getStations()` without any arguments will return a list of all (*currently*, 73) stations!
 
 ### Output
 
@@ -96,6 +98,14 @@ Providing a filter to `getStations()` to return a list of stations only limits t
             )
 
     )
+
+
+Command-line script
+--------------------
+
+The included [`indego-cli.php` script](https://github.com/ericoc/indego-php-lib/blob/master/indego-cli.php) script is a fun command-line PHP script that I wrote which uses the `Indego` class/library to get the bike share data from the citys API!
+
+![Indego PHP Library CLI screenshot](https://raw.githubusercontent.com/ericoc/indego-php-lib/master/cli.png "Indego PHP Library CLI screenshot")
 
 
 More Information
