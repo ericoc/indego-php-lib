@@ -76,7 +76,7 @@ class Indego {
 			foreach($this->stations as $station) {
 
 				// If the search query is five digits, only match the stations with that zip code
-				if ( (is_numeric($where)) && (strlen($_GET['where']) == 5) ) {
+				if ( (is_numeric($where)) && (strlen($where) == 5) ) {
 					if ($station->addressZipCode == $where) {
 						$return[$station->kioskId] = $station;
 					}
