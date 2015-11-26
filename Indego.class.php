@@ -20,8 +20,8 @@ class Indego {
 		curl_setopt($c, CURLOPT_URL, $url);
 		curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($c, CURLOPT_USERAGENT, $user_agent);
-		curl_setopt($c, CURLOPT_CONNECTTIMEOUT, 2);
-		curl_setopt($c, CURLOPT_TIMEOUT, 2);
+		curl_setopt($c, CURLOPT_CONNECTTIMEOUT, 3);
+		curl_setopt($c, CURLOPT_TIMEOUT, 5);
 		$r = curl_exec($c);
 		curl_close($c);
 
