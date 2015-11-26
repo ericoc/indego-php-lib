@@ -26,9 +26,6 @@ foreach ($stations as $station) {
 		continue;
 	}
 
-	// Create an array of the current stations dock counts
-	$graph = '';
-
 	// Pad the current stations name with spaces so everything lines up
 	$name = explode(',', $station->name);
 	$name = explode('-', $name[0]);
@@ -38,6 +35,7 @@ foreach ($stations as $station) {
 	echo $station->kioskId . "\t" . $name;
 
 	// Build a pretty graph for bikes at the current station
+	$graph = '';	// Graph starts empty
 	for ($bike = 0; $bike < $station->bikesAvailable; $bike++) {
 		$graph .= "#";
 	}
@@ -57,7 +55,4 @@ foreach ($stations as $station) {
 	echo str_pad($station->bikesAvailable . ' bikes', 12);
 	echo str_pad($station->docksAvailable . ' docks', 12);
 	echo "\n";
-
-	// Forget the current stations name and graph
-	unset($name, $graph);
 }
