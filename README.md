@@ -103,7 +103,7 @@ Calling `getStations()` without any arguments will return a list of all (*curren
 Command-line script
 --------------------
 
-The included [`indego-cli.php` script](https://github.com/ericoc/indego-php-lib/blob/master/indego-cli.php) script is a fun command-line PHP script that I wrote which uses the `Indego` class/library to get the bike share data from the citys API!
+The included [`indego-cli.php` script](https://github.com/ericoc/indego-php-lib/blob/master/indego-cli.php) is a fun command-line PHP script that I wrote which uses the `Indego` class/library to get the bike share data from the citys API!
 
 ![Indego PHP Library CLI screenshot](https://raw.githubusercontent.com/ericoc/indego-php-lib/master/cli.png "Indego PHP Library CLI screenshot")
 
