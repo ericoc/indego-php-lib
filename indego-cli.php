@@ -18,6 +18,14 @@ if ( (isset($argv[1])) && (!empty($argv[1])) ) {
 // Get stations
 $stations = $indego->getStations($search);
 
+// Return red error message to standard error (stderr) if no stations were found and exit with non-zero
+if (empty($stations)) {
+	$stderr = fopen('php://stderr', 'w+');
+	fwrite($stderr, "\e[31mNo stations found!\033[0m\n");
+	fclose($stderr);
+	exit(1);
+}
+
 // Loop through each bike-share station
 foreach ($stations as $station) {
 
