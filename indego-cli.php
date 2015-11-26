@@ -6,7 +6,7 @@ require_once('Indego.class.php');
 // Instantiate the Indego class
 $indego = new Indego;
 
-// Get the stations that were requests if doing a search with a CLI argumen
+// Get the stations that were requested if doing a search with a CLI argument
 if ( (isset($argv[1])) && (!empty($argv[1])) ) {
 	$search = trim($argv[1]);
 
@@ -29,28 +29,31 @@ foreach ($stations as $station) {
 	// Create an array of the current stations dock counts
 	$graph = '';
 
-	// Pad the current stations name with tabs so everything lines up
-	$name		=	explode(',', $station->name);
-	$name		=	explode('-', $name[0]);
-	$name		=	str_pad($name[0], 48);
+	// Pad the current stations name with spaces so everything lines up
+	$name = explode(',', $station->name);
+	$name = explode('-', $name[0]);
+	$name = str_pad($name[0], 48);
 
 	// List the current stations information in a unique row
 	echo $station->kioskId . "\t" . $name;
 
-	// Print a pretty graph of stylized blocks for bikes at the current station
+	// Build a pretty graph for bikes at the current station
 	for ($bike = 0; $bike < $station->bikesAvailable; $bike++) {
 		$graph .= "#";
 	}
 
-	// And print another pretty graph of stylized blocks for empty docks at the current station
+	// And build another pretty graph of for empty docks at the current station
 	for ($dock = 0; $dock < $station->docksAvailable; $dock++) {
 		$graph .= "=";
 	}
 
+	// Pad the graph with spaces to line stuff up and color code the bikes (#) vs. docks (=) graphs that we just built
 	$graph = str_pad($graph, 38);
-	$graph = str_replace('#', "\e[32m#\033[0m", $graph);
-	$graph = str_replace('=', "\e[31m=\033[0m", $graph);
+	$graph = str_replace('#', "\e[32m#\033[0m", $graph);	// Bikes are green
+	$graph = str_replace('=', "\e[31m=\033[0m", $graph);	// Docks are red
 	echo $graph;
+
+	// Pad the bikes and docks numbers with spaces to line stuff up
 	echo str_pad($station->bikesAvailable . ' bikes', 12);
 	echo str_pad($station->docksAvailable . ' docks', 12);
 	echo "\n";
