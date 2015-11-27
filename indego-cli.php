@@ -31,9 +31,7 @@ if (empty($stations)) {
 foreach ($stations as $station) {
 
 	// Pad the current stations name with spaces so everything lines up
-	$name = explode(',', $station->name);
-	$name = explode('-', $name[0]);
-	$name = str_pad($name[0], 48);
+	$name = str_pad($station->name, 60);
 
 	// List the current stations information in a unique row
 	echo $station->kioskId . "\t" . $name;
