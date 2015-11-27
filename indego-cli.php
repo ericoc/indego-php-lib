@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 
 // Require the Indego class
