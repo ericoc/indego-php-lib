@@ -30,11 +30,6 @@ if (empty($stations)) {
 // Loop through each bike-share station
 foreach ($stations as $station) {
 
-	// Skip the station if its kiosk is not active?
-	if ($station->kioskPublicStatus !== 'Active') {
-		continue;
-	}
-
 	// Pad the current stations name with spaces so everything lines up
 	$name = explode(',', $station->name);
 	$name = explode('-', $name[0]);
