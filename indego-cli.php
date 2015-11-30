@@ -21,20 +21,15 @@ $stations = $indego->getStations($search);
 
 // Return red error message to standard error (stderr) if no stations were found and exit with non-zero
 if (empty($stations)) {
-	$stderr = fopen('php://stderr', 'w+');
-	fwrite($stderr, "\e[31mNo stations found!\033[0m\n");
-	fclose($stderr);
+	fwrite(STDERR, "\e[31mNo stations found!\033[0m\n");
 	exit(1);
 }
 
 // Loop through each bike-share station
 foreach ($stations as $station) {
 
-	// Pad the current stations name with spaces so everything lines up
-	$name = str_pad($station->name, 60);
-
-	// List the current stations information in a unique row
-	echo $station->kioskId . "\t" . $name;
+	// List the current stations ID and name, padded with spaces so everything lines up
+	echo str_pad($station->kioskId, 8) . ' ' . str_pad($station->name, 60);
 
 	// Build a pretty graph for bikes at the current station
 	$graph = '';	// Graph starts empty
