@@ -110,6 +110,6 @@ The included [`indego-cli.php` script](https://github.com/ericoc/indego-php-lib/
 
 More Information
 ----------------
-* [The actual API, a GeoJSON file](https://api.phila.gov/bike-share-stations/v1)
+* [The actual API, a GeoJSON file](https://www.rideindego.com/stations/json/)
 * [OpenDataPhilly description of the API](https://www.opendataphilly.org/dataset/bike-share-stations)
 * [Interesting article visualizing Indego usage](http://www.randalolson.com/2015/09/05/visualizing-indego-bike-share-usage-patterns-in-philadelphia-part-2/)

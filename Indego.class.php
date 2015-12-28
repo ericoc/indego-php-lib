@@ -10,7 +10,7 @@ class Indego {
 	private function findStations() {
 
 		// Specify the Indego bikes API URL
-		$url = 'https://api.phila.gov/bike-share-stations/v1';
+		$url = 'https://www.rideindego.com/stations/json/';
 
 		// Specify a friendly user-agent to hit the API with
 		$user_agent = 'Indego PHP API Library - https://github.com/ericoc/indego-php-lib';
