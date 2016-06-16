@@ -32,7 +32,7 @@ Providing a argument/filter to `getStations()` to return a list of stations only
 
 Unfortunately, there does not appear to be a signifcant amount of documentation for the API being used nor does there seem to be any parameters available to limit the stations being retrieved from the API.
 
-Calling `getStations()` without any arguments will return a list of all (*currently*, 73) stations!
+Calling `getStations()` without any arguments will return a list of all (*currently*, 103) stations!
 
 ### Output
 
