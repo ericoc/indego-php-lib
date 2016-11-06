@@ -85,9 +85,10 @@ class Indego {
 						}
 
 					// Kiosk IDs are four digits (so far... new stations could break this eventually)
+					// A kiosk ID match only returns that single station immediately
 					} elseif (strlen($where) == 4) {
 						if ($station->kioskId == $where) {
-							$return[$station->kioskId] = $station;
+							return array($station->kioskId => $station);
 						}
 					}
 				}
