@@ -75,10 +75,20 @@ class Indego {
 			// Loop through each station in the primary array
 			foreach($this->stations as $station) {
 
-				// If the search query is five digits, only match the stations with that zip code
-				if ( (is_numeric($where)) && (strlen($where) == 5) ) {
-					if ($station->addressZipCode == $where) {
-						$return[$station->kioskId] = $station;
+				// If the search query is numeric, it could either be a zip code or a kiosk ID
+				if (is_numeric($where)) {
+
+					// Zip codes are five digits
+					if (strlen($where) == 5) {
+						if ($station->addressZipCode == $where) {
+							$return[$station->kioskId] = $station;
+						}
+
+					// Kiosk IDs are four digits (so far... new stations could break this eventually)
+					} elseif (strlen($where) == 4) {
+						if ($station->kioskId == $where) {
+							$return[$station->kioskId] = $station;
+						}
 					}
 
 				// Do a regular expression match using the search query on the name and address of each station
