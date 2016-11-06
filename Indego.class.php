@@ -90,9 +90,10 @@ class Indego {
 							$return[$station->kioskId] = $station;
 						}
 					}
+				}
 
 				// Do a regular expression match using the search query on the name and address of each station
-				} elseif ( (preg_match($pattern, $station->addressStreet)) || (preg_match($pattern, $station->name)) ) {
+				if ( (preg_match($pattern, $station->addressStreet)) || (preg_match($pattern, $station->name)) ) {
 					$return[$station->kioskId] = $station;
 				}
 			}
